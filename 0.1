@@ -1,0 +1,31 @@
+
+class Auto:
+  def __init__(self,brand,yearOfMan):
+    self.brand = brand
+    self.yearOfMan = yearOfMan
+    self.dictinary = {'Toyota':'Japan', 'Renault':'France'}
+
+  def show(self):
+    print(self.brand,self.yearOfMan)
+    
+  def showCountry(self):
+    print(self.brand,self.yearOfMan,' is from ', self.dictinary.pop(self.brand))
+
+brands =['Fiat','Honda','Toyota','Hyundai','Renault']
+yearOfManStart= 1990
+yearOfManEnd = 2019
+
+cars = []
+for a in range(10):
+  brand = random.choice(brands)
+  yearOfMan = random.randint(yearOfManStart,yearOfManEnd)
+  cars.append(Auto(brand,yearOfMan))
+  
+
+for a in cars:
+  try:
+    a.showCountry()
+  except KeyError:
+    print(a.brand,a.yearOfMan,'no defined country')
+  
+print (len(cars))
